@@ -13,6 +13,7 @@ namespace NLog.Model
     /// <summary>
     /// A log event data transfer object.
     /// </summary>
+    [DebuggerDisplay("Logger: '{LoggerName}' Level: {Level} Message: '{Message}'")]
     public class LogEvent
     {
         /// <summary>
@@ -118,6 +119,11 @@ namespace NLog.Model
             });
 
             Properties.AddRange(properties);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Log Event: Logger='{0}' Level={1} Message='{2}'", LoggerName, Level, Message);
         }
 
         #region Serialize

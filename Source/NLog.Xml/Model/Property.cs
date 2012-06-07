@@ -1,10 +1,12 @@
 using System;
+using System.Diagnostics;
 
 namespace NLog.Model
 {
     /// <summary>
     /// A property data transfer object.
     /// </summary>
+    [DebuggerDisplay("Name: '{Name}' Value: '{Value}'")]
     public class Property
     {
         /// <summary>

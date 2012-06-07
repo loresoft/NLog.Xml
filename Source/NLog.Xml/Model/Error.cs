@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace NLog.Model
@@ -6,6 +7,7 @@ namespace NLog.Model
     /// <summary>
     /// An error data transfer object.
     /// </summary>
+    [DebuggerDisplay("Type: '{TypeName}' Message: '{Message}'")]
     public class Error
     {
         /// <summary>
@@ -88,6 +90,16 @@ namespace NLog.Model
         /// </value>
         public Error InnerError { get; set; }
 
+        /// <summary>
+        /// Returns a <see cref="System.String"/> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String"/> that represents this instance.
+        /// </returns>
+        public override string ToString()
+        {
+            return ExceptionText;
+        }
 
         /// <summary>
         /// Gets the base exception detail.
@@ -133,7 +145,7 @@ namespace NLog.Model
             if (method != null)
             {
                 MethodName = method.Name;
-                
+
                 AssemblyName assembly = method.Module.Assembly.GetName();
                 ModuleName = assembly.Name;
                 ModuleVersion = assembly.Version.ToString();
