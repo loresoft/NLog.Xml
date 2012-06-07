@@ -12,6 +12,7 @@ Use the XML layout renderer
 
 
 Add custom properties to the xml document
+
     <target ...>
       <layout xsi:type="XmlLayout">
         <property name="ThreadID" layout="${threadid}" />
