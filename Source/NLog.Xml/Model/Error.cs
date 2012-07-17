@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace NLog.Model
 {
@@ -135,9 +137,9 @@ namespace NLog.Model
             TypeName = type.FullName;
 
 #if !SILVERLIGHT
-            PropertyInfo info = type.GetProperty("HResult", BindingFlags.NonPublic | BindingFlags.Instance);
-            if (info != null)
-                ErrorCode = info.GetValue(ex, null).ToString();
+            var external = ex as ExternalException;
+            if (external != null)
+                ErrorCode = external.ErrorCode.ToString(CultureInfo.InvariantCulture);
 
             Source = ex.Source;
 

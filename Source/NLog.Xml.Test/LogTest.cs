@@ -6,19 +6,17 @@ using NLog.Fluent;
 namespace NLog.Xml.Test
 {
     [TestClass]
-    public class LogBuilderTest
+    public class LogTest    
     {
-        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
-
         [TestMethod]
         public void TraceWrite()
         {
-            _logger.Trace()
+            Log.Trace()
                 .Message("This is a test fluent message.")
                 .Property("Test", "TraceWrite")
                 .Write();
 
-            _logger.Trace()
+            Log.Trace()
                 .Message("This is a test fluent message '{0}'.", DateTime.Now.Ticks)
                 .Property("Test", "TraceWrite")
                 .Write();
@@ -27,12 +25,12 @@ namespace NLog.Xml.Test
         [TestMethod]
         public void InfoWrite()
         {
-            _logger.Info()
+            Log.Info()
                 .Message("This is a test fluent message.")
                 .Property("Test", "InfoWrite")
                 .Write();
 
-            _logger.Info()
+            Log.Info()
                 .Message("This is a test fluent message '{0}'.", DateTime.Now.Ticks)
                 .Property("Test", "InfoWrite")
                 .Write();
@@ -48,37 +46,22 @@ namespace NLog.Xml.Test
             }
             catch (Exception ex)
             {
-                _logger.Error()
+                Log.Error()
                     .Message("Error reading file '{0}'.", path)
                     .Exception(ex)
                     .Property("Test", "ErrorWrite")
                     .Write();
             }
 
-            _logger.Error()
+            Log.Error()
                 .Message("This is a test fluent message.")
                 .Property("Test", "ErrorWrite")
                 .Write();
 
-            _logger.Error()
+            Log.Error()
                 .Message("This is a test fluent message '{0}'.", DateTime.Now.Ticks)
                 .Property("Test", "ErrorWrite")
                 .Write();
         }
-
-        [TestMethod]
-        public void InfoContextWrite()
-        {
-            MappedDiagnosticsContext.Set("Global", "true");
-            
-            _logger.Info()
-                .Message("This is a test Mapped Diagnostics Context fluent message.")
-                .Property("Test", "InfoWrite")
-                .Write();
-
-            MappedDiagnosticsContext.Remove("Global");
-
-        }
-
     }
 }
