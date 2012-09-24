@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.Xml", "NLog.Xml\NLog.Xml.csproj", "{45296D91-6EC4-42B4-B527-3FA5296B5086}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.Xml.Test", "NLog.Xml.Test\NLog.Xml.Test.csproj", "{32678C56-FFBA-49F2-B850-E40139F9BA91}"

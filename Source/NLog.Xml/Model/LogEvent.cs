@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
-using System.Xml.Serialization;
+using NLog.Serialization;
 
 namespace NLog.Model
 {
@@ -127,7 +127,6 @@ namespace NLog.Model
         }
 
         #region Serialize
-        private static readonly Lazy<XmlSerializer> _serializer = new Lazy<XmlSerializer>(() => new XmlSerializer(typeof(LogEvent)));
 
         /// <summary>Saves this instance to an XML string.</summary>
         /// <returns>An XML string representing this instance.</returns>
@@ -194,7 +193,9 @@ namespace NLog.Model
         /// <param name="writer">The <see cref="XmlWriter"/> to save this instance to.</param>
         public void Save(XmlWriter writer)
         {
-            _serializer.Value.Serialize(writer, this);
+            var logWriter = new LogEventWriter();
+            logWriter.Write(writer, this);
+
             writer.Flush();
         }
 
@@ -237,7 +238,8 @@ namespace NLog.Model
         /// <returns>A new instance deserialize from the specifed reader.</returns>
         public static LogEvent Load(XmlReader reader)
         {
-            var instance = _serializer.Value.Deserialize(reader) as LogEvent;
+            var logReader = new LogEventReader();
+            var instance = logReader.Read(reader);
             return instance;
         }
         #endregion

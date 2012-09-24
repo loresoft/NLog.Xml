@@ -41,6 +41,11 @@ namespace NLog.Fluent
             };
         }
 
+        public LogEventInfo LogEventInfo
+        {
+            get { return _logEvent; }
+        }
+
         /// <summary>
         /// Sets the exception information of the logging event.
         /// </summary>

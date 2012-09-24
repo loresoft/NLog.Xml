@@ -60,6 +60,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Property.cs" />
     <Compile Include="Model\Error.cs" />
+    <Compile Include="Serialization\LogEventReader.cs" />
+    <Compile Include="Serialization\LogEventWriter.cs" />
     <Compile Include="Targets\MessageQueueTarget.cs" />
   </ItemGroup>
   <ItemGroup>
