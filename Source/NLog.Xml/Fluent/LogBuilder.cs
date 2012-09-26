@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace NLog.Fluent
 {
@@ -41,6 +42,9 @@ namespace NLog.Fluent
             };
         }
 
+        /// <summary>
+        /// Gets the <see cref="LogEventInfo"/> created by the builder.
+        /// </summary>
         public LogEventInfo LogEventInfo
         {
             get { return _logEvent; }
@@ -230,8 +234,21 @@ namespace NLog.Fluent
         /// <summary>
         /// Writes the log event to the underlying logger.
         /// </summary>
-        public void Write()
+        /// <param name="callerMemberName">The method or property name of the caller to the method. This is set at by the compiler.</param>
+        /// <param name="callerFilePath">The full path of the source file that contains the caller. This is set at by the compiler.</param>
+        /// <param name="callerLineNumber">The line number in the source file at which the method is called. This is set at by the compiler.</param>
+        public void Write(
+            [CallerMemberName]string callerMemberName = null,
+            [CallerFilePath]string callerFilePath = null,
+            [CallerLineNumber]int callerLineNumber = 0)
         {
+            if (callerMemberName != null)
+                Property("CallerMemberName", callerMemberName);
+            if (callerFilePath != null)
+                Property("CallerFilePath", callerFilePath);
+            if (callerLineNumber != 0)
+                Property("CallerLineNumber", callerLineNumber);
+
             _logger.Log(_logEvent);
         }
     }
