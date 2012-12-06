@@ -62,6 +62,7 @@
     <Compile Include="Model\Error.cs" />
     <Compile Include="Serialization\LogEventReader.cs" />
     <Compile Include="Serialization\LogEventWriter.cs" />
+    <Compile Include="Targets\LimitedMemoryTarget.cs" />
     <Compile Include="Targets\MessageQueueTarget.cs" />
   </ItemGroup>
   <ItemGroup>

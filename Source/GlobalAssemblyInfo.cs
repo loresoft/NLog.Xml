@@ -17,9 +17,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("NLog.Fluent")]
 [assembly: AssemblyCompany("LoreSoft")]
 [assembly: AssemblyCopyright("Copyright © 2012 LoreSoft")]
-[assembly: AssemblyVersion("1.0.0.1")]
-[assembly: AssemblyFileVersion("1.0.0.1")]
-[assembly: AssemblyInformationalVersion("1.0.0.1")]
+[assembly: AssemblyVersion("2.0.0.0")]
+[assembly: AssemblyFileVersion("2.0.0.1")]
+[assembly: AssemblyInformationalVersion("2.0.0.1")]
 
 
 
@@ -31,11 +31,11 @@ internal sealed partial class ThisAssembly {
     
     internal const string AssemblyCopyright = "Copyright © 2012 LoreSoft";
     
-    internal const string AssemblyVersion = "1.0.0.1";
+    internal const string AssemblyVersion = "2.0.0.0";
     
-    internal const string AssemblyFileVersion = "1.0.0.1";
+    internal const string AssemblyFileVersion = "2.0.0.1";
     
-    internal const string AssemblyInformationalVersion = "1.0.0.1";
+    internal const string AssemblyInformationalVersion = "2.0.0.1";
     
     private ThisAssembly() {
     }

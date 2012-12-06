@@ -13,7 +13,7 @@
   <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets"/>
 
   <PropertyGroup>
-    <Major>1</Major>
+    <Major>2</Major>
     <Minor>0</Minor>
 
     <Build>0</Build>
@@ -65,7 +65,7 @@
                   AssemblyProduct="NLog.Xml"
                   AssemblyCompany="LoreSoft"
                   AssemblyCopyright="Copyright © $(Year) LoreSoft"
-                  AssemblyVersion="$(Major).$(Minor).$(Build).$(Revision)"
+                  AssemblyVersion="$(Major).$(Minor).$(BindBuild).$(BindRevision)"
                   AssemblyFileVersion="$(Major).$(Minor).$(Build).$(Revision)"
                   AssemblyInformationalVersion="$(Major).$(Minor).$(Build).$(Revision)"
                   GenerateClass="true"

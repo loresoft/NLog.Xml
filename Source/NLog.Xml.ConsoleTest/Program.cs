@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using NLog.Fluent;
+using NLog.Targets;
 
 namespace NLog.Xml.ConsoleTest
 {
@@ -12,6 +13,13 @@ namespace NLog.Xml.ConsoleTest
         private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
         static void Main(string[] args)
         {
+
+            var config = LogManager.Configuration;
+            var memory = config.AllTargets.OfType<LimitedMemoryTarget>().FirstOrDefault();
+            if (memory != null)
+                memory.Limit = 5;
+
+
             int k = 42;
             int l = 100;
 
