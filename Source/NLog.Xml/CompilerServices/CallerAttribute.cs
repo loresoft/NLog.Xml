@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-#if !net45
+#if NET4_0
 namespace System.Runtime.CompilerServices
 {
     /// <summary>

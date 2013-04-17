@@ -17,7 +17,7 @@
     <Minor>0</Minor>
 
     <Build>0</Build>
-    <BindBuild>0</BindBuild>
+    <BindBuild>1</BindBuild>
 
     <Revision>1</Revision>
     <BindRevision>0</BindRevision>
@@ -73,7 +73,9 @@
   </Target>
 
   <Target Name="Compile" DependsOnTargets="Clean;Version">
-    <MSBuild Projects="Source\NLog.Xml.sln"
+    <MSBuild Projects="Source\NLog.Xml.netfx40.sln"
+             Properties="Configuration=$(BuildConfiguration)"/>
+    <MSBuild Projects="Source\NLog.Xml.netfx45.sln"
              Properties="Configuration=$(BuildConfiguration)"/>
   </Target>
 
@@ -95,20 +97,35 @@
     <Delete Files="@(DeleteFiles)" />
 
     <!-- Release Files -->
-    <MakeDir Directories="$(PackageFolder)" />
-    <CreateItem Include="Source\NLog.Xml\bin\$(BuildConfiguration)\NLog.Xml.*">
+    <MakeDir Directories="$(PackageFolder)\v4.0" />
+    <CreateItem Include="Source\NLog.Xml\bin\$(BuildConfiguration)\v4.0\NLog.Xml.*">
       <Output TaskParameter="Include" ItemName="ReleaseFiles" />
     </CreateItem>
     <Copy SourceFiles="@(ReleaseFiles)"
-          DestinationFolder="$(PackageFolder)" />
+          DestinationFolder="$(PackageFolder)\v4.0" />
+
+    <MakeDir Directories="$(PackageFolder)\v4.5" />
+    <CreateItem Include="Source\NLog.Xml\bin\$(BuildConfiguration)\v4.5\NLog.Xml.*">
+      <Output TaskParameter="Include" ItemName="ReleaseFiles" />
+    </CreateItem>
+    <Copy SourceFiles="@(ReleaseFiles)"
+          DestinationFolder="$(PackageFolder)\v4.5" />
 
     <!-- Test Files -->
     <MakeDir Directories="$(TestFolder)" />
-    <CreateItem Include="Source\*.Test\bin\$(BuildConfiguration)\*.*">
+    <CreateItem Include="Source\*.Test\bin\$(BuildConfiguration)\v4.0\*.*">
       <Output TaskParameter="Include" ItemName="TestFiles" />
     </CreateItem>
     <Copy SourceFiles="@(TestFiles)"
-          DestinationFolder="$(TestFolder)" />
+          DestinationFolder="$(TestFolder)\v4.0" />
+
+    <MakeDir Directories="$(TestFolder)" />
+    <CreateItem Include="Source\*.Test\bin\$(BuildConfiguration)\v4.5\*.*">
+      <Output TaskParameter="Include" ItemName="TestFiles" />
+    </CreateItem>
+    <Copy SourceFiles="@(TestFiles)"
+          DestinationFolder="$(TestFolder)\v4.5" />
+
   </Target>
 
   <Target Name="Build">
