@@ -82,9 +82,6 @@ namespace NLog.Fluent
         /// <returns></returns>
         public LogBuilder LoggerName(string loggerName)
         {
-            if (loggerName == null)
-                throw new ArgumentNullException("loggerName");
-
             _logEvent.LoggerName = loggerName;
             return this;
         }
