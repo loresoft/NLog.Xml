@@ -16,7 +16,7 @@
     <Major>2</Major>
     <Minor>0</Minor>
 
-    <Build>0</Build>
+    <Build>1</Build>
     <BindBuild>1</BindBuild>
 
     <Revision>1</Revision>
@@ -62,7 +62,7 @@
 
     <AssemblyInfo CodeLanguage="CS"
                   OutputFile="Source\GlobalAssemblyInfo.cs"
-                  AssemblyProduct="NLog.Xml"
+                  AssemblyProduct="NLog"
                   AssemblyCompany="LoreSoft"
                   AssemblyCopyright="Copyright © $(Year) LoreSoft"
                   AssemblyVersion="$(Major).$(Minor).$(BindBuild).$(BindRevision)"
@@ -76,6 +76,11 @@
     <MSBuild Projects="Source\NLog.Xml.netfx40.sln"
              Properties="Configuration=$(BuildConfiguration)"/>
     <MSBuild Projects="Source\NLog.Xml.netfx45.sln"
+             Properties="Configuration=$(BuildConfiguration)"/>
+    
+    <MSBuild Projects="Source\NLog.Fluent.netfx40.sln"
+             Properties="Configuration=$(BuildConfiguration)"/>
+    <MSBuild Projects="Source\NLog.Fluent.netfx45.sln"
              Properties="Configuration=$(BuildConfiguration)"/>
   </Target>
 

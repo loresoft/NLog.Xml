@@ -18,9 +18,7 @@ namespace NLog.Fluent
         /// Starts building a log event with the specified <see cref="LogLevel" />.
         /// </summary>
         /// <param name="logLevel">The log level.</param>
-        /// <param name="callerMemberName">The method or property name of the caller to the method.</param>
         /// <param name="callerFilePath">The full path of the source file that contains the caller. This is the file path at the time of compile.</param>
-        /// <param name="callerLineNumber">The line number in the source file at which the method is called.</param>
         /// <returns>An instance of the fluent <see cref="LogBuilder"/>.</returns>
         public static LogBuilder Level(LogLevel logLevel, [CallerFilePath]string callerFilePath = null)
         {

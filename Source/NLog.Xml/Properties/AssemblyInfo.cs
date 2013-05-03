@@ -2,8 +2,8 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("NLog.Xml")]
-[assembly: AssemblyDescription("NLog XML layout and fluent logging.")]
+[assembly: AssemblyTitle("NLog")]
+[assembly: AssemblyDescription("NLog logging.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
