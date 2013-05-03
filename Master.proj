@@ -103,14 +103,14 @@
 
     <!-- Release Files -->
     <MakeDir Directories="$(PackageFolder)\v4.0" />
-    <CreateItem Include="Source\NLog.Xml\bin\$(BuildConfiguration)\v4.0\NLog.Xml.*">
+    <CreateItem Include="Source\NLog.Xml\bin\$(BuildConfiguration)\v4.0\NLog*.*">
       <Output TaskParameter="Include" ItemName="ReleaseFiles" />
     </CreateItem>
     <Copy SourceFiles="@(ReleaseFiles)"
           DestinationFolder="$(PackageFolder)\v4.0" />
 
     <MakeDir Directories="$(PackageFolder)\v4.5" />
-    <CreateItem Include="Source\NLog.Xml\bin\$(BuildConfiguration)\v4.5\NLog.Xml.*">
+    <CreateItem Include="Source\NLog.Xml\bin\$(BuildConfiguration)\v4.5\NLog.*.*">
       <Output TaskParameter="Include" ItemName="ReleaseFiles" />
     </CreateItem>
     <Copy SourceFiles="@(ReleaseFiles)"
