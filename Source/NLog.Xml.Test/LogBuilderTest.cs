@@ -25,6 +25,32 @@ namespace NLog.Xml.Test
         }
 
         [TestMethod]
+        public void TraceIfWrite()
+        {
+            _logger.Trace()
+                .Message("This is a test fluent message.")
+                .Property("Test", "TraceWrite")
+                .Write();
+
+            int v = 1;
+            _logger.Trace()
+                .Message("This is a test fluent WriteIf message '{0}'.", DateTime.Now.Ticks)
+                .Property("Test", "TraceWrite")
+                .WriteIf(() => v == 1);
+
+            _logger.Trace()
+                .Message("This is a test fluent WriteIf message '{0}'.", DateTime.Now.Ticks)
+                .Property("Test", "TraceWrite")
+                .WriteIf(v == 1);
+
+            _logger.Trace()
+                .Message("Should Not WriteIf message '{0}'.", DateTime.Now.Ticks)
+                .Property("Test", "TraceWrite")
+                .WriteIf(v > 1);
+
+        }
+
+        [TestMethod]
         public void InfoWrite()
         {
             _logger.Info()

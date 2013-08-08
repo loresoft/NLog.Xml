@@ -248,5 +248,44 @@ namespace NLog.Fluent
 
             _logger.Log(_logEvent);
         }
+
+        /// <summary>
+        /// Writes the log event to the underlying logger if the condition delegate is true.
+        /// </summary>
+        /// <param name="condition">If condition is true, write log event; otherwise ignore event.</param>
+        /// <param name="callerMemberName">The method or property name of the caller to the method. This is set at by the compiler.</param>
+        /// <param name="callerFilePath">The full path of the source file that contains the caller. This is set at by the compiler.</param>
+        /// <param name="callerLineNumber">The line number in the source file at which the method is called. This is set at by the compiler.</param>
+        public void WriteIf(
+            Func<bool> condition,
+            [CallerMemberName]string callerMemberName = null,
+            [CallerFilePath]string callerFilePath = null,
+            [CallerLineNumber]int callerLineNumber = 0)
+        {
+            if (condition == null || !condition())
+                return;
+
+            Write(callerMemberName, callerFilePath, callerLineNumber);
+        }
+
+        /// <summary>
+        /// Writes the log event to the underlying logger if the condition is true.
+        /// </summary>
+        /// <param name="condition">If condition is true, write log event; otherwise ignore event.</param>
+        /// <param name="callerMemberName">The method or property name of the caller to the method. This is set at by the compiler.</param>
+        /// <param name="callerFilePath">The full path of the source file that contains the caller. This is set at by the compiler.</param>
+        /// <param name="callerLineNumber">The line number in the source file at which the method is called. This is set at by the compiler.</param>
+        public void WriteIf(
+            bool condition,
+            [CallerMemberName]string callerMemberName = null,
+            [CallerFilePath]string callerFilePath = null,
+            [CallerLineNumber]int callerLineNumber = 0)
+        {
+            if (!condition)
+                return;
+
+            Write(callerMemberName, callerFilePath, callerLineNumber);
+        }
+
     }
 }
