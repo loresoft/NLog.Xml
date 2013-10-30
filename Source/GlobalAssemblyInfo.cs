@@ -14,28 +14,31 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyProduct("NLog")]
+[assembly: AssemblyProduct("NLog.Xml")]
 [assembly: AssemblyCompany("LoreSoft")]
 [assembly: AssemblyCopyright("Copyright © 2013 LoreSoft")]
-[assembly: AssemblyVersion("2.1.1.0")]
-[assembly: AssemblyFileVersion("2.1.1.1")]
-[assembly: AssemblyInformationalVersion("2.1.1.1")]
+[assembly: AssemblyConfiguration("Release")]
+[assembly: AssemblyVersion("2.1.0.0")]
+[assembly: AssemblyFileVersion("2.1.0.0")]
+[assembly: AssemblyInformationalVersion("2.1.0.0")]
 
 
 
 internal sealed partial class ThisAssembly {
     
-    internal const string AssemblyProduct = "NLog";
+    internal const string AssemblyProduct = "NLog.Xml";
     
     internal const string AssemblyCompany = "LoreSoft";
     
     internal const string AssemblyCopyright = "Copyright © 2013 LoreSoft";
     
-    internal const string AssemblyVersion = "2.1.1.0";
+    internal const string AssemblyConfiguration = "Release";
     
-    internal const string AssemblyFileVersion = "2.1.1.1";
+    internal const string AssemblyVersion = "2.1.0.0";
     
-    internal const string AssemblyInformationalVersion = "2.1.1.1";
+    internal const string AssemblyFileVersion = "2.1.0.0";
+    
+    internal const string AssemblyInformationalVersion = "2.1.0.0";
     
     private ThisAssembly() {
     }

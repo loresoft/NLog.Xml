@@ -2,9 +2,8 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("NLog")]
-[assembly: AssemblyDescription("NLog logging.")]
-[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyTitle("NLog.Xml")]
+[assembly: AssemblyDescription("NLog Xml Extension.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

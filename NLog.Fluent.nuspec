@@ -18,7 +18,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="Build\Package\v4.0\NLog.Fluent.*" target="lib\net40\" />
-    <file src="Build\Package\v4.5\NLog.Fluent.*" target="lib\net45\" />
+    <file src="Package\v4.0\NLog.Fluent.*" target="lib\net40\" />
+    <file src="Package\v4.5\NLog.Fluent.*" target="lib\net45\" />
   </files>
 </package>
