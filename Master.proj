@@ -26,7 +26,14 @@
     <FileVersion>$(BUILD_NUMBER)</FileVersion>
     <InformationalVersion>$(BUILD_NUMBER)</InformationalVersion>
   </PropertyGroup>
-
+  
+  <PropertyGroup Condition=" '$(APPVEYOR_BUILD_VERSION)' != '' ">
+    <!-- AppVeyor Build Number -->
+    <Version>2.1.0.0</Version>
+    <FileVersion>$(APPVEYOR_BUILD_VERSION)</FileVersion>
+    <InformationalVersion>$(APPVEYOR_BUILD_VERSION)</InformationalVersion>
+  </PropertyGroup>
+  
   <PropertyGroup Condition=" '$(BuildConfiguration)' == '' ">
     <BuildConfiguration>Release</BuildConfiguration>
   </PropertyGroup>
