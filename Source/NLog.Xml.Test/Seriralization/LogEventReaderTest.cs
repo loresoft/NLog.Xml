@@ -2,15 +2,14 @@
 using System.IO;
 using System.Xml;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog.Serialization;
+using Xunit;
 
 namespace NLog.Xml.Test.Seriralization
 {
-    [TestClass]
     public class LogEventReaderTest
     {
-        [TestMethod]
+        [Fact]
         public void Reader()
         {
             string xml = @"<LogEvent>
@@ -35,7 +34,7 @@ namespace NLog.Xml.Test.Seriralization
             log.Message.Should().Be("Error reading file 'blah.txt'.");
         }
 
-        [TestMethod]
+        [Fact]
         public void ReaderNoWhiteSpace()
         {
             string xml = @"<LogEvent><SequenceID>1</SequenceID><TimeStamp>2012-09-24T09:09:59.5433403-05:00</TimeStamp><Level>Error</Level><LoggerName>LogEventWriterTest</LoggerName><Message>Error reading file 'blah.txt'.</Message></LogEvent>";
@@ -54,7 +53,7 @@ namespace NLog.Xml.Test.Seriralization
             log.Message.Should().Be("Error reading file 'blah.txt'.");
         }
 
-        [TestMethod]
+        [Fact]
         public void ReaderExtraElement()
         {
             string xml = @"<LogEvent>
@@ -80,7 +79,7 @@ namespace NLog.Xml.Test.Seriralization
             log.Message.Should().Be("Error reading file 'blah.txt'.");
         }
 
-        [TestMethod]
+        [Fact]
         public void ReaderFull()
         {
             string xml = @"
@@ -206,7 +205,7 @@ File name: 'C:\Projects\github\NLog.Xml\Source\NLog.Xml.Test\bin\Debug\blah.txt'
 
         }
 
-        [TestMethod]
+        [Fact]
         public void ReaderFullExtra()
         {
             string xml = @"
@@ -309,7 +308,7 @@ File name: 'C:\Projects\github\NLog.Xml\Source\NLog.Xml.Test\bin\Debug\blah.txt'
 
         }
 
-        [TestMethod]
+        [Fact]
         public void ReaderNullLogger()
         {
             string xml = @"<LogEvent>
@@ -333,7 +332,7 @@ File name: 'C:\Projects\github\NLog.Xml\Source\NLog.Xml.Test\bin\Debug\blah.txt'
             log.Message.Should().Be("Error reading file 'blah.txt'.");
         }
         
-        [TestMethod]
+        [Fact]
         public void ReadNull()
         {
             string xml = "<LogEvent />";
@@ -346,7 +345,7 @@ File name: 'C:\Projects\github\NLog.Xml\Source\NLog.Xml.Test\bin\Debug\blah.txt'
             log.Should().NotBeNull();
         }
 
-        [TestMethod]
+        [Fact]
         public void ReadChildNull()
         {
             string xml = "<LogEvent><Level /></LogEvent>";
@@ -359,7 +358,7 @@ File name: 'C:\Projects\github\NLog.Xml\Source\NLog.Xml.Test\bin\Debug\blah.txt'
             log.Should().NotBeNull();
         }
         
-        [TestMethod]
+        [Fact]
         public void ReadPropertyNull()
         {
             string xml = "<LogEvent><Properties /></LogEvent>";
@@ -372,7 +371,7 @@ File name: 'C:\Projects\github\NLog.Xml\Source\NLog.Xml.Test\bin\Debug\blah.txt'
             log.Should().NotBeNull();
         }
         
-        [TestMethod]
+        [Fact]
         public void ReadErrorNull()
         {
             string xml = "<LogEvent><Error /></LogEvent>";
@@ -385,7 +384,7 @@ File name: 'C:\Projects\github\NLog.Xml\Source\NLog.Xml.Test\bin\Debug\blah.txt'
             log.Should().NotBeNull();
         }
 
-        [TestMethod]
+        [Fact]
         public void ReadPropertiesNoWhiteSpace()
         {
             string xml = @"<LogEvent><Properties><Property><Name>Test</Name><Value>ErrorWrite</Value></Property></Properties></LogEvent>";
@@ -407,7 +406,7 @@ File name: 'C:\Projects\github\NLog.Xml\Source\NLog.Xml.Test\bin\Debug\blah.txt'
 
         }
 
-        [TestMethod]
+        [Fact]
         public void ReadPropertiesWhiteSpace()
         {
             string xml = @"<LogEvent>

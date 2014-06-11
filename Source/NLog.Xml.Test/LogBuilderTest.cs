@@ -1,16 +1,15 @@
 ﻿using System;
 using System.IO;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog.Fluent;
+using Xunit;
 
 namespace NLog.Xml.Test
 {
-    [TestClass]
     public class LogBuilderTest
     {
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
-        [TestMethod]
+        [Fact]
         public void TraceWrite()
         {
             _logger.Trace()
@@ -24,7 +23,7 @@ namespace NLog.Xml.Test
                 .Write();
         }
 
-        [TestMethod]
+        [Fact]
         public void TraceIfWrite()
         {
             _logger.Trace()
@@ -50,7 +49,7 @@ namespace NLog.Xml.Test
 
         }
 
-        [TestMethod]
+        [Fact]
         public void InfoWrite()
         {
             _logger.Info()
@@ -64,7 +63,7 @@ namespace NLog.Xml.Test
                 .Write();
         }
 
-        [TestMethod]
+        [Fact]
         public void ErrorWrite()
         {
             string path = "blah.txt";
@@ -92,7 +91,7 @@ namespace NLog.Xml.Test
                 .Write();
         }
 
-        [TestMethod]
+        [Fact]
         public void InfoContextWrite()
         {
             MappedDiagnosticsContext.Set("Global", "true");

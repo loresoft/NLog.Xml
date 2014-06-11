@@ -4,7 +4,4 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("NLog.Xml")]
 [assembly: AssemblyDescription("NLog Xml Extension.")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: ComVisible(false)]
 [assembly: Guid("8b581574-021b-41a4-a5de-88face8b9246")]

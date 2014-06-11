@@ -1,18 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.Xml.netfx45", "NLog.Xml\NLog.Xml.netfx45.csproj", "{45296D91-6EC4-42B4-B527-3FA5296B5086}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.Xml.Test.netfx45", "NLog.Xml.Test\NLog.Xml.Test.netfx45.csproj", "{32678C56-FFBA-49F2-B850-E40139F9BA91}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2BFE72FD-19DC-4998-A39B-4583E0B56757}"
 	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
 		..\Master.proj = ..\Master.proj
-		..\NLog.Xml.nuspec = ..\NLog.Xml.nuspec
-		NLog.Xml.vsmdi = NLog.Xml.vsmdi
 		..\README.md = ..\README.md
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.Xml.ConsoleTest.netfx45", "NLog.Xml.ConsoleTest\NLog.Xml.ConsoleTest.netfx45.csproj", "{C04C5DB3-56D1-4BF2-9318-A882929E8ED3}"
@@ -25,9 +23,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{08CC38
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = NLog.Xml.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -70,5 +65,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = NLog.Xml.vsmdi
 	EndGlobalSection
 EndGlobal

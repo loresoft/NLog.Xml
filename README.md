@@ -1,10 +1,29 @@
-NLog.Xml
-===========
+#NLog.Xml
 
 NLog XML layout and fluent logging.
 
-Xml Layout
-===========
+[![Build status](https://ci.appveyor.com/api/projects/status/9m108vtfq3t3lyc7)](https://ci.appveyor.com/project/LoreSoft/nlog-xml)
+
+##Download
+
+The NLog.Xml library is available on nuget.org via package name `NLog.Xml`.
+
+To install NLog.Xml, run the following command in the Package Manager Console
+
+    PM> Install-Package NLog.Xml
+    
+More information about NuGet package avaliable at
+<https://nuget.org/packages/NLog.Xml>
+
+##Development Builds
+
+
+Development builds are available on the myget.org feed.  A development build is promoted to the main NuGet feed when it's determined to be stable. 
+
+In your Package Manager settings add the following package source for development builds:
+<http://www.myget.org/F/loresoft/>
+
+##Xml Layout
 
 Use the XML layout renderer
 
@@ -24,8 +43,7 @@ Add custom properties to the xml document
     </target>
 
 
-Fluent
-===========
+##Fluent
 
 Writing info message via fluent API.
 
@@ -49,8 +67,7 @@ Writing error message.
             .Write();
     }
 
-Caller Info
-===========
+##Caller Info
 
 Use the static Log class so you don't have to include loggers in all of classes.  The static Log class using .net 4.5 caller info to get the logger from the file name. The needed attributes are included to support targeting .net 4.0 runtime.
 

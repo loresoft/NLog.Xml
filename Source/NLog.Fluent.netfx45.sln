@@ -1,12 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.Fluent.netfx45", "NLog.Xml\NLog.Fluent.netfx45.csproj", "{45296D91-6EC4-42B4-B527-3FA5296B5086}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2BFE72FD-19DC-4998-A39B-4583E0B56757}"
 	ProjectSection(SolutionItems) = preProject
 		..\Master.proj = ..\Master.proj
-		..\NLog.Fluent.nuspec = ..\NLog.Fluent.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{08CC3879-E2A6-44F9-9976-1A37B8713637}"

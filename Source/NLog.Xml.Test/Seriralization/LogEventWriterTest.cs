@@ -2,17 +2,16 @@
 using System.IO;
 using System.Xml;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog.Fluent;
 using NLog.Model;
 using NLog.Serialization;
+using Xunit;
 
 namespace NLog.Xml.Test.Seriralization
 {
-    [TestClass]
     public class LogEventWriterTest
     {
-        [TestMethod]
+        [Fact]
         public void ErrorWrite()
         {
             LogEvent logEvent = new LogEvent();
@@ -53,7 +52,7 @@ namespace NLog.Xml.Test.Seriralization
             newEvent.Should().NotBeNull();
         }
 
-        [TestMethod]
+        [Fact]
         public void NestedErrorWrite()
         {
             LogEvent logEvent = new LogEvent();

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.IO;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog.Fluent;
+using Xunit;
 
 namespace NLog.Xml.Test
 {
-    [TestClass]
     public class LogTest    
     {
-        [TestMethod]
+        [Fact]
         public void TraceWrite()
         {
             Log.Trace()
@@ -22,7 +21,7 @@ namespace NLog.Xml.Test
                 .Write();
         }
 
-        [TestMethod]
+        [Fact]
         public void InfoWrite()
         {
             Log.Info()
@@ -36,7 +35,7 @@ namespace NLog.Xml.Test
                 .Write();
         }
 
-        [TestMethod]
+        [Fact]
         public void ErrorWrite()
         {
             string path = "blah.txt";
