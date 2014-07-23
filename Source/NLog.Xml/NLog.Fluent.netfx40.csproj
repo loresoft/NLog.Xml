@@ -20,10 +20,9 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NET4_0</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\v4.0\NLog.Fluent.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,13 +31,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\v4.0\NLog.Fluent.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
-    <DefineConstants>NET4_0;$(DefineConstants)</DefineConstants>
+    <DefineConstants>NET40;$(DefineConstants)</DefineConstants>
     <OutputPath>bin\$(Configuration)\$(TargetFrameworkVersion)</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\$(TargetFrameworkVersion)</IntermediateOutputPath>
-    <DocumentationFile>$(OutputPath)\NLog.Xml.xml</DocumentationFile>
+    <DocumentationFile>$(OutputPath)\NLog.Fluent.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NLog">
@@ -59,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="NLog.Fluent.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

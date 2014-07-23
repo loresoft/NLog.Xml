@@ -88,7 +88,7 @@ namespace NLog.Fluent
         private static LogBuilder Create(LogLevel logLevel, string callerFilePath)
         {
             string name = Path.GetFileNameWithoutExtension(callerFilePath ?? string.Empty);
-            var logger = string.IsNullOrWhiteSpace(name) ? _logger : LogManager.GetLogger(name);
+            var logger = string.IsNullOrEmpty(name) ? _logger : LogManager.GetLogger(name);
 
             var builder = new LogBuilder(logger, logLevel);
             if (callerFilePath != null)

@@ -22,7 +22,7 @@
     <BuildConfiguration  Condition=" '$(BuildConfiguration)' == '' ">Release</BuildConfiguration>
 
     <Major Condition=" '$(Major)' == '' ">3</Major>
-    <Minor Condition=" '$(Minor)' == '' ">0</Minor>
+    <Minor Condition=" '$(Minor)' == '' ">1</Minor>
     <Patch Condition=" '$(Patch)' == '' ">0</Patch>
 
     <!-- 
@@ -69,11 +69,15 @@
   </Target>
 
   <Target Name="Compile" DependsOnTargets="Clean;Version">
+    <MSBuild Projects="$(SourceFolder)\NLog.Xml.netfx35.sln"
+             Properties="Configuration=$(BuildConfiguration)"/>
     <MSBuild Projects="$(SourceFolder)\NLog.Xml.netfx40.sln"
              Properties="Configuration=$(BuildConfiguration)"/>
     <MSBuild Projects="$(SourceFolder)\NLog.Xml.netfx45.sln"
              Properties="Configuration=$(BuildConfiguration)"/>
 
+    <MSBuild Projects="$(SourceFolder)\NLog.Fluent.netfx35.sln"
+             Properties="Configuration=$(BuildConfiguration)"/>
     <MSBuild Projects="$(SourceFolder)\NLog.Fluent.netfx40.sln"
              Properties="Configuration=$(BuildConfiguration)"/>
     <MSBuild Projects="$(SourceFolder)\NLog.Fluent.netfx45.sln"
