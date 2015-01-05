@@ -2,26 +2,25 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>NLog.Fluent</id>
-    <version>3.1.0</version>
+    <version>3.2.0</version>
     <authors>LoreSoft</authors>
     <owners>LoreSoft</owners>
+    <title>NLog.Fluent (deprecated)</title>
     <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
     <projectUrl>https://github.com/loresoft/NLog.Xml</projectUrl>
     <iconUrl>http://nlog-project.org/N.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Fluent API for NLog.</description>
+    <description>(deprecated) Package no longer needed. Source included in NLog.</description>
     <copyright>Copyright (c) 2014, LoreSoft</copyright>
     <language>en-US</language>
     <tags>NLog Fluent Logging Instrumentation</tags>
     <dependencies>
-      <dependency id="NLog" version="3.1.0.0" />
+      <dependency id="NLog" version="3.2.0.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\v3.5\NLog.Fluent.*" target="lib\net35\" />
-    <file src="bin\Release\v4.0\NLog.Fluent.*" target="lib\net40\" />
-    <file src="bin\Release\v4.5\NLog.Fluent.*" target="lib\net45\" />
-    <file src="Fluent\*.cs" target="src" />
-    <file src="..\GlobalAssemblyInfo.cs" target="src" />
+    <file src="_._" target="lib\net35\_._" />
+    <file src="_._" target="lib\net40\_._" />
+    <file src="_._" target="lib\net45\_._" />
   </files>
 </package>

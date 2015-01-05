@@ -11,6 +11,7 @@ namespace NLog.Xml.Test.Seriralization
 {
     public class LogEventWriterTest
     {
+        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
         [Fact]
         public void ErrorWrite()
         {
@@ -23,7 +24,7 @@ namespace NLog.Xml.Test.Seriralization
             }
             catch (Exception ex)
             {
-                var log = Log.Error()
+                var log = _logger.Error()
                     .Message("Error reading file '{0}'.", path)
                     .Exception(ex)
                     .Property("Test", "ErrorWrite")
@@ -71,7 +72,7 @@ namespace NLog.Xml.Test.Seriralization
             }
             catch (Exception ex)
             {
-                var log = Log.Error()
+                var log = _logger.Error()
                     .Message("Error reading file '{0}'.", path)
                     .Exception(ex)
                     .Property("Test", "ErrorWrite")
