@@ -14,5 +14,6 @@ TestResults
 *.chm
 /Package
 /Tests
+/Tools
 /build.txt
 /xunit.xml

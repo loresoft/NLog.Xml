@@ -7,11 +7,10 @@
     <SourceFolder>$(MSBuildProjectDirectory)\Source</SourceFolder>
 
     <MSBuildCommunityTasksPath>$(ToolFolder)\MSBuildTasks\tools</MSBuildCommunityTasksPath>
-    <XUnitTasksPath>$(ToolFolder)\xunit.runners\tools</XUnitTasksPath>
+    <XUnitTasksPath>$(ToolFolder)\xunit.runner.console\tools</XUnitTasksPath>
   </PropertyGroup>
 
   <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets"/>
-  <UsingTask AssemblyFile="$(XUnitTasksPath)\xunit.runner.msbuild.dll" TaskName="Xunit.Runner.MSBuild.xunit" />
 
   <!-- Version Number -->
   <PropertyGroup>
@@ -21,25 +20,14 @@
 
     <BuildConfiguration  Condition=" '$(BuildConfiguration)' == '' ">Release</BuildConfiguration>
 
-    <Major Condition=" '$(Major)' == '' ">3</Major>
-    <Minor Condition=" '$(Minor)' == '' ">2</Minor>
-    <Patch Condition=" '$(Patch)' == '' ">0</Patch>
+    <Major Condition=" '$(Major)' == '' ">4</Major>
+    <Minor Condition=" '$(Minor)' == '' ">0</Minor>
+    <Revision Condition=" '$(Revision)' == '' ">0</Revision>
 
-    <!-- 
-      With prerelease
-      <Prerelease>-alpha$(BuildNumber)</Prerelease>
-      
-      Empty for non-prerelease
-      <Prerelease></Prerelease>
-    -->
-    <Prerelease Condition=" '$(Prerelease)' == '' ">.$(BuildNumber)</Prerelease>
-    <Metadata>+build.$(BuildNumber)</Metadata>
-
-    <AssemblyVersion>$(Major).0.0.0</AssemblyVersion>
-    <AssemblyFileVersion>$(Major).$(Minor).$(Patch).$(BuildNumber)</AssemblyFileVersion>
-    <!-- Semantic Versioning -->
-    <AssemblyInformationalVersion>$(Major).$(Minor).$(Patch)$(Prerelease)$(Metadata)</AssemblyInformationalVersion>
-    <PackageVersion>$(Major).$(Minor).$(Patch)$(Prerelease)</PackageVersion>
+    <AssemblyVersion>$(Major).$(Minor).0.0</AssemblyVersion>
+    <AssemblyFileVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</AssemblyFileVersion>
+    <AssemblyInformationalVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</AssemblyInformationalVersion>
+    <PackageVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</PackageVersion>
   </PropertyGroup>
 
   <Target Name="Clean">
@@ -61,9 +49,9 @@
                   AssemblyCompany="LoreSoft"
                   AssemblyCopyright="Copyright © $(Year) LoreSoft"
                   AssemblyConfiguration="$(BuildConfiguration)"
-                  AssemblyVersion="$(Version)"
-                  AssemblyFileVersion="$(FileVersion)"
-                  AssemblyInformationalVersion="$(InformationalVersion)"
+                  AssemblyVersion="$(AssemblyVersion)"
+                  AssemblyFileVersion="$(AssemblyFileVersion)"
+                  AssemblyInformationalVersion="$(AssemblyInformationalVersion)"
                   AssemblyTrademark=""
                   ComVisible="false"/>
   </Target>
@@ -82,7 +70,7 @@
       <TestAssemblies Include="$(SourceFolder)\NLog.Xml.Test\bin\$(BuildConfiguration)\**\*.Test.dll"/>
     </ItemGroup>
 
-    <xunit Assemblies="@(TestAssemblies)" Xml="xunit.xml" />
+    <exec Command="$(XUnitTasksPath)\xunit.console.exe &quot;%(TestAssemblies.Identity)&quot; -appveyor"/>
   </Target>
 
   <Target Name="Package" DependsOnTargets="Test">
@@ -92,8 +80,7 @@
       <NuGetFiles Include="$(SourceFolder)\**\*.nuspec"/>
     </ItemGroup>
 
-    <NuGetPack ToolPath="$(ToolFolder)"
-               File="%(NuGetFiles.Identity)"
+    <NuGetPack File="%(NuGetFiles.Identity)"
                OutputDirectory="$(BuildFolder)"
                Version="$(PackageVersion)"
                Symbols="true"  />
@@ -112,13 +99,11 @@
     </ItemGroup>
 
     <!-- Push to MyGet on Build -->
-    <NuGetPush ToolPath="$(ToolFolder)"
-               File="%(NuGetPackages.Identity)"
+    <NuGetPush File="%(NuGetPackages.Identity)"
                Source="https://www.myget.org/F/loresoft/" />
 
     <!-- Push to Symbols on Build -->
-    <NuGetPush ToolPath="$(ToolFolder)"
-               File="%(NuGetSymbols.Identity)"
+    <NuGetPush File="%(NuGetSymbols.Identity)"
                Source="https://nuget.symbolsource.org/MyGet/loresoft" />
 
   </Target>
