@@ -3,6 +3,7 @@
 NLog XML layout and fluent logging.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/9m108vtfq3t3lyc7)](https://ci.appveyor.com/project/LoreSoft/nlog-xml)
+[![Version](https://img.shields.io/nuget/v/NLog.Xml.svg)](https://www.nuget.org/packages/nlog.xml)
 
 ##Download
 
@@ -32,16 +33,17 @@ Use the XML layout renderer
 
 Add custom properties to the xml document
 
-    <target ...>
-      <layout xsi:type="XmlLayout">
+```xml
+<target ...>
+    <layout xsi:type="XmlLayout">
         <property name="ThreadID" layout="${threadid}" />
         <property name="ThreadName" layout="${threadname}" />
         <property name="ProcessID" layout="${processid}" />
         <property name="ProcessName" layout="${processname:fullName=true}" />
         <property name="UserName" layout="${windows-identity}" />
-      </layout>
-    </target>
-
+    </layout>
+</target>
+```
 
 ##Fluent
 
