@@ -14,7 +14,7 @@
     <language>en-US</language>
     <tags>NLog Logging</tags>
     <dependencies>
-      <dependency id="NLog" version="4.1.2" />
+      <dependency id="NLog" version="4.2.0" />
     </dependencies>
   </metadata>
   <files>
