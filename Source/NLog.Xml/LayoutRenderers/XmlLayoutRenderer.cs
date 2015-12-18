@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NLog.Model;
+using NLog.Serialization;
 
 namespace NLog.LayoutRenderers
 {
@@ -19,11 +20,8 @@ namespace NLog.LayoutRenderers
         /// <param name="logEventInfo">The log event info.</param>
         protected override void Append(StringBuilder builder, LogEventInfo logEventInfo)
         {
-            var logEvent = new LogEvent();
-            logEvent.Populate(logEventInfo);
-
-            string xml = logEvent.Save();
-            builder.Append(xml);
+            var writer = new LogEventInfoWriter();
+            writer.Write(builder, logEventInfo);
         }
     }
 }

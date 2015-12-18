@@ -135,7 +135,8 @@ namespace NLog.Model
             var settings = new XmlWriterSettings
             {
                 Indent = true,
-                Encoding = Encoding.UTF8
+                Encoding = Encoding.UTF8,
+                OmitXmlDeclaration = true
             };
 
             // make sure xml is in utf-8
@@ -164,7 +165,8 @@ namespace NLog.Model
             var settings = new XmlWriterSettings
             {
                 Indent = true,
-                Encoding = Encoding.UTF8
+                Encoding = Encoding.UTF8,
+                OmitXmlDeclaration = true
             };
 
             using (var xw = XmlWriter.Create(stream, settings))
@@ -180,7 +182,8 @@ namespace NLog.Model
             var settings = new XmlWriterSettings
             {
                 Indent = true,
-                Encoding = Encoding.UTF8
+                Encoding = Encoding.UTF8,
+                OmitXmlDeclaration = true
             };
 
             using (var xw = XmlWriter.Create(writer, settings))

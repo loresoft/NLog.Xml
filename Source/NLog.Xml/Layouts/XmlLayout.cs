@@ -26,12 +26,12 @@ namespace NLog.Layouts
         /// Gets the custom properties for the log event.
         /// </summary>
         [ArrayParameter(typeof(XmlProperty), "property")]
-        public IList<XmlProperty> Properties { get; private set; }
+        public IList<XmlProperty> Properties { get; }
 
         /// <summary>
         /// Gets the layout renderer.
         /// </summary>
-        public XmlLayoutRenderer Renderer { get; private set; }
+        public XmlLayoutRenderer Renderer { get; }
 
         /// <summary>
         /// Renders the layout for the specified logging event by invoking layout renderers.
@@ -48,7 +48,7 @@ namespace NLog.Layouts
                 string name = xmlProperty.Name;
                 string text = xmlProperty.Layout.Render(logEvent);
 
-                logEvent.Properties.Add(name, text);
+                logEvent.Properties[name] =  text;
             }
 
             return this.Renderer.Render(logEvent);
