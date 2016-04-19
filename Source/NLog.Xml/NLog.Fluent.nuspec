@@ -15,7 +15,7 @@
     <language>en-US</language>
     <tags>NLog Fluent Logging Instrumentation</tags>
     <dependencies>
-      <dependency id="NLog" version="4.2.2" />
+      <dependency id="NLog" version="4.3.0" />
     </dependencies>
   </metadata>
   <files>
