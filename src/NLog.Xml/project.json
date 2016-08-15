@@ -1,0 +1,45 @@
+﻿{
+  "version": "4.0.0.0",
+  "description": "NLog XML layout",
+  "language": "en-US",
+  "authors": [ "LoreSoft" ],
+  "packOptions": {
+    "copyright": "Copyright (c) 2016, LoreSoft",
+    "owners": [ "LoreSoft" ],
+    "projectUrl": "https://github.com/loresoft/NLog.Mongo",
+    "licenseUrl": "https://raw.githubusercontent.com/loresoft/NLog.Mongo/master/LICENSE",
+    "requireLicenseAcceptance": false,
+    "summary": "NLog XML layout",
+    "tags": [ "NLog", "Logging", "XML" ]
+  },
+  "buildOptions": {
+    "compile": [ "..\\GlobalAssemblyInfo.cs" ],
+    "xmlDoc": true
+  },
+  "dependencies": {
+    "NLog": "4.3.7"
+  },
+  "frameworks": {
+    "net45": {
+      "frameworkAssemblies": {
+        "System.Configuration": "",
+        "System.Messaging": "",
+        "System.Xml": ""
+      }
+    },
+    "net40": {
+      "frameworkAssemblies": {
+        "System.Configuration": "",
+        "System.Messaging": "",
+        "System.Xml":  "" 
+      }
+    },
+    "net35": {
+      "frameworkAssemblies": {
+        "System.Configuration": "",
+        "System.Messaging": "",
+        "System.Xml":  "" 
+      }
+    }
+  }
+}

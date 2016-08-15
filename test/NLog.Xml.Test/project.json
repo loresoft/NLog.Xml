@@ -1,0 +1,25 @@
+﻿{
+  "version": "4.0.0.0",
+  "testRunner": "xunit",
+  "dependencies": {
+    "xunit": "2.2.0-beta2-build3300",
+    "dotnet-test-xunit": "2.2.0-preview2-build1029",
+    "FluentAssertions": "4.13.0",
+    "NLog.Xml": "4.0.0.0"
+  },
+  "buildOptions": {
+    "copyToOutput": {
+      "include": [
+        "xunit.runner.json",
+        "NLog.config"
+      ]
+    }
+  },
+  "frameworks": {
+    "net451": {
+      "dependencies": {
+        "Microsoft.NETCore.Platforms": "1.0.1"
+      }
+    }
+  }
+}
