@@ -6,8 +6,8 @@
   "packOptions": {
     "copyright": "Copyright (c) 2016, LoreSoft",
     "owners": [ "LoreSoft" ],
-    "projectUrl": "https://github.com/loresoft/NLog.Mongo",
-    "licenseUrl": "https://raw.githubusercontent.com/loresoft/NLog.Mongo/master/LICENSE",
+    "projectUrl": "https://github.com/loresoft/NLog.Xml",
+    "licenseUrl": "https://raw.githubusercontent.com/loresoft/NLog.Xml/master/LICENSE",
     "requireLicenseAcceptance": false,
     "summary": "NLog XML layout",
     "tags": [ "NLog", "Logging", "XML" ]
